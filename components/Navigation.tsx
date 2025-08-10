@@ -2,11 +2,11 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { useAppKit } from '@reown/appkit/react'
+// import { useAppKit } from '@reown/appkit/react'
 
 export default function Navigation() {
   const pathname = usePathname()
-  const { open } = useAppKit()
+  // const { open } = useAppKit()
 
   const navItems = [
     { href: "/", label: "Feed", icon: "🏠" },

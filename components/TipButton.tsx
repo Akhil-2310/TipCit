@@ -4,6 +4,10 @@ import { useState } from "react"
 import { useAppKit, useAppKitAccount, useAppKitProvider } from '@reown/appkit/react'
 import { BrowserProvider, Contract, parseEther } from 'ethers'
 
+interface EthereumProvider {
+  request: (args: { method: string; params?: unknown[] }) => Promise<unknown>
+}
+
 interface TipButtonProps {
   postId: string
   authorName: string
@@ -24,13 +28,13 @@ const TIP_CONTRACT_ABI = [
 
 const CONTRACT_ADDRESS = "0x4309Eb90A37cfD0ecE450305B24a2DE68b73f312"
 
-export default function TipButton({ postId, authorName, authorAddress, onTipSuccess }: TipButtonProps) {
+export default function TipButton({ postId, authorName, onTipSuccess }: TipButtonProps) {
   const [isLoading, setIsLoading] = useState(false)
   const [showTipModal, setShowTipModal] = useState(false)
   const [tipAmount, setTipAmount] = useState("0.01")
   
   const { open } = useAppKit()
-  const { address, isConnected } = useAppKitAccount()
+  const { isConnected } = useAppKitAccount()
   const { walletProvider } = useAppKitProvider('eip155')
 
   const handleTip = async () => {
@@ -47,7 +51,7 @@ export default function TipButton({ postId, authorName, authorAddress, onTipSucc
     setIsLoading(true)
 
     try {
-      const ethersProvider = new BrowserProvider(walletProvider as unknown as any)
+      const ethersProvider = new BrowserProvider(walletProvider as unknown as EthereumProvider)
       const signer = await ethersProvider.getSigner()
       
       const contract = new Contract(CONTRACT_ADDRESS, TIP_CONTRACT_ABI, signer)

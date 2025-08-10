@@ -8,6 +8,10 @@ import Navigation from "@/components/Navigation"
 import { useAppKit, useAppKitAccount, useAppKitProvider } from '@reown/appkit/react'
 import { BrowserProvider, Contract } from 'ethers'
 
+interface EthereumProvider {
+  request: (args: { method: string; params?: unknown[] }) => Promise<unknown>
+}
+
 // ABI for creating posts
 const CREATE_POST_ABI = [
   {
@@ -50,7 +54,7 @@ export default function CreatePostPage() {
     setIsSubmitting(true)
 
     try {
-      const ethersProvider = new BrowserProvider(walletProvider as unknown as any)
+      const ethersProvider = new BrowserProvider(walletProvider as unknown as EthereumProvider)
       const signer = await ethersProvider.getSigner()
       
       const contract = new Contract(CONTRACT_ADDRESS, CREATE_POST_ABI, signer)

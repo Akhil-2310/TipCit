@@ -3,8 +3,8 @@
 import { useState, useEffect } from "react"
 import PostCard from "@/components/PostCard"
 import Navigation from "@/components/Navigation"
-import { useAppKitProvider, useAppKitAccount } from '@reown/appkit/react'
-import { BrowserProvider, Contract, JsonRpcProvider } from 'ethers'
+import { useAppKitAccount } from '@reown/appkit/react'
+import { Contract, JsonRpcProvider } from 'ethers'
 
 interface Post {
   id: string
@@ -57,7 +57,7 @@ export default function HomePage() {
   const [posts, setPosts] = useState<Post[]>([])
   const [loading, setLoading] = useState(true)
   
-  const { walletProvider } = useAppKitProvider('eip155')
+  // const { walletProvider } = useAppKitProvider('eip155')
   const { address } = useAppKitAccount()
 
   const fetchAllPosts = async () => {
@@ -148,7 +148,7 @@ export default function HomePage() {
         <div className="mb-8 flex justify-between items-center">
           <div>
             <h1 className="text-3xl font-bold text-gray-900 mb-2">Achievement Feed</h1>
-            <p className="text-gray-600">Celebrate and support others' accomplishments</p>
+                            <p className="text-gray-600">Celebrate and support others&apos; accomplishments</p>
           </div>
           <button
             onClick={handleRefresh}

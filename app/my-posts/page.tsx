@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 import Link from "next/link"
 import PostCard from "@/components/PostCard"
 import Navigation from "@/components/Navigation"
@@ -60,7 +60,7 @@ export default function MyPostsPage() {
   
   const { address, isConnected } = useAppKitAccount()
 
-  const fetchMyPosts = async () => {
+  const fetchMyPosts = useCallback(async () => {
     if (!isConnected || !address) {
       setLoading(false)
       return
@@ -96,11 +96,11 @@ export default function MyPostsPage() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [isConnected, address])
 
   useEffect(() => {
     fetchMyPosts()
-  }, [address, isConnected])
+  }, [address, isConnected, fetchMyPosts])
 
   // Add a refresh function for manual refresh
   const handleRefresh = () => {
