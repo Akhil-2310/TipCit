@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TipCit 🎉
 
-## Getting Started
+A decentralized platform built on Citrea testnet where users can share their achievements and receive tips in cBTC. Built with Next.js, Reown AppKit (WalletConnect), and smart contracts.
 
-First, run the development server:
+## Features ✨
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- 🔗 **Wallet Connection**: Connect your wallet using Reown AppKit 
+- 🏆 **Share Achievements**: Create posts about your accomplishments on the blockchain
+- 💰 **Tip System**: Send cBTC tips to support others' achievements
+- 📱 **Responsive Design**: Beautiful, mobile-friendly interface
+- ⚡ **Citrea Integration**: Built on Citrea testnet for fast, low-cost transactions
+- 🔒 **Decentralized**: All posts and tips are stored on-chain
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Tech Stack 🛠️
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **Frontend**: Next.js 15, React 19, TypeScript, Tailwind CSS
+- **Blockchain**: Citrea Testnet, Solidity Smart Contracts
+- **Wallet Integration**: Reown AppKit (WalletConnect)
+- **Web3 Library**: Ethers.js v6
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
+## Why TipCit? 🌟
 
-To learn more about Next.js, take a look at the following resources:
+TipCit creates a new way to celebrate and monetize achievements. Instead of just likes and comments, your accomplishments can earn real cryptocurrency tips from the community. Built on blockchain, your achievements are permanently stored and you have full ownership of your content.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Key Benefits:**
+- Turn achievements into real earnings through cBTC tips
+- Permanent, decentralized storage of your accomplishments
+- Support others directly with micro-transactions
+- Global accessibility - no traditional banking required
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Usage Guide 📖
 
-## Deploy on Vercel
+1. **Connect Wallet**: Click "Connect Wallet" in the navigation
+2. **Browse Feed**: View achievements shared by the community
+3. **Create Posts**: Share your own achievements via the "Create" page
+4. **Send Tips**: Support others by tipping their posts with cBTC
+5. **View Your Posts**: Check your achievements on the "My Posts" page
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Future Scope 🚀
+
+**Upcoming Features:**
+- Achievement categories (fitness, education, career, etc.)
+- User profiles and social features
+- NFT integration for collectible achievements
+- Analytics dashboard with earning insights
+
+**Potential Expansions:**
+- Corporate achievement programs
+- Educational partnerships and certifications
+- Advanced tipping features (scheduled tips, tip pools)
+- Community governance and voting
+
+## Contributing 🤝
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Test thoroughly
+5. Submit a pull request
+
+## License 📝
+
+This project is open source and available under the MIT License.
+
+## Support 💬
+
+If you encounter any issues or have questions:
+1. Check the GitHub issues
+2. Create a new issue with detailed information
+3. Join the community discussions
+
+---
+
+**Built with ❤️ for the Citrea ecosystem**
