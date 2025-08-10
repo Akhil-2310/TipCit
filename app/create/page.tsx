@@ -31,7 +31,7 @@ export default function CreatePostPage() {
   const router = useRouter()
   
   const { open } = useAppKit()
-  const { address, isConnected } = useAppKitAccount()
+  const { isConnected } = useAppKitAccount()
   const { walletProvider } = useAppKitProvider('eip155')
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -50,7 +50,7 @@ export default function CreatePostPage() {
     setIsSubmitting(true)
 
     try {
-      const ethersProvider = new BrowserProvider(walletProvider as any)
+      const ethersProvider = new BrowserProvider(walletProvider as unknown as any)
       const signer = await ethersProvider.getSigner()
       
       const contract = new Contract(CONTRACT_ADDRESS, CREATE_POST_ABI, signer)

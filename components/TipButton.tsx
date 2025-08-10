@@ -47,7 +47,7 @@ export default function TipButton({ postId, authorName, authorAddress, onTipSucc
     setIsLoading(true)
 
     try {
-      const ethersProvider = new BrowserProvider(walletProvider as any)
+      const ethersProvider = new BrowserProvider(walletProvider as unknown as any)
       const signer = await ethersProvider.getSigner()
       
       const contract = new Contract(CONTRACT_ADDRESS, TIP_CONTRACT_ABI, signer)

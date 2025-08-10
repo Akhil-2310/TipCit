@@ -18,6 +18,16 @@ interface Post {
   tipAmount: number
 }
 
+interface BlockchainPost {
+  id: bigint
+  author: string
+  achievement: string
+  description: string
+  timestamp: bigint
+  tips: bigint
+  tipAmount: bigint
+}
+
 // ABI for reading user posts
 const READ_POSTS_ABI = [
   {
@@ -67,7 +77,7 @@ export default function MyPostsPage() {
         
         const blockchainPosts = await contract.getUserPosts(address)
         
-        const formattedPosts: Post[] = blockchainPosts.map((post: any) => ({
+        const formattedPosts: Post[] = blockchainPosts.map((post: BlockchainPost) => ({
           id: post.id.toString(),
           author: "You",
           authorAddress: post.author,
@@ -141,7 +151,7 @@ export default function MyPostsPage() {
                 <p className="text-gray-500 mb-4">
                   {!isConnected 
                     ? "Connect your wallet to view your posts."
-                    : "You haven't shared any achievements yet."
+                    : "You haven&apos;t shared any achievements yet."
                   }
                 </p>
                 {isConnected && (

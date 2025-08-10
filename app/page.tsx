@@ -17,6 +17,16 @@ interface Post {
   tipAmount: number
 }
 
+interface BlockchainPost {
+  id: bigint
+  author: string
+  achievement: string
+  description: string
+  timestamp: bigint
+  tips: bigint
+  tipAmount: bigint
+}
+
 // ABI for reading all posts
 const READ_ALL_POSTS_ABI = [
   {
@@ -62,7 +72,7 @@ export default function HomePage() {
           
       const blockchainPosts = await contract.getAllPosts()
       
-      const formattedPosts: Post[] = blockchainPosts.map((post: any) => ({
+      const formattedPosts: Post[] = blockchainPosts.map((post: BlockchainPost) => ({
         id: post.id.toString(),
         author: `${post.author.slice(0, 6)}...${post.author.slice(-4)}`, // Shortened address as author name
         authorAddress: post.author,
